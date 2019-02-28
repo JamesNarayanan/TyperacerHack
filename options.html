@@ -1,0 +1,52 @@
+<html>
+	<head>
+		<title>TyperacerHack Options</title>
+		<style>
+			body {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+				font-family: 'Courier New', Courier, monospace;
+				font-size: 2rem;
+			}
+			#gameMode, #set, #run {
+				margin: 20px;
+				padding: 5px 10px;
+				font-size: 1em;
+				font-family: 'Courier New', Courier, monospace;
+				background-color: rgba(0, 0, 0, .1);
+				border: 2px solid black;
+			}
+			button {
+				cursor: pointer;
+				transition: .2s;
+			}
+			button:hover {
+				background-color: rgba(0, 0, 0, .25);
+			}
+			#set {
+				margin-top: 0px;
+			}
+			#status {
+				text-align: center;
+				color: white;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="run">Run the Hack</button>
+
+		<hr width="100%"/>
+
+		<select id="gameMode">
+			<option value="0">Competition</option>
+			<option value="1">Practice</option>
+		</select>
+		
+		<button id="set">Set</button>
+		<div id="status">Game Mode Updated</div>
+
+		<script src="options.js"></script>
+	</body>
+</html>
