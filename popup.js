@@ -1,19 +1,26 @@
 document.body.onload = function() {
-	chrome.storage.sync.get("gameMode", function(items) {
+	chrome.storage.sync.get(["gameMode", "speed"], function(items) {
 	  if (!chrome.runtime.error) {
 		console.log(items);
-		document.getElementById("current").innerHTML = items.gameMode == 0 ? "Competition" : "Practice";
+		document.getElementById("gameMode").value = items.gameMode;
+		document.getElementById("currentMode").innerHTML = items.gameMode == 0 ? "Competition" : "Practice";
+		document.getElementById("currentSpeed").innerHTML = items.speed;
 	  }
 	});
 }
 document.getElementById("set").onclick = function() {
-	var d = document.getElementById("gameMode").value;
-	chrome.storage.sync.set({ "gameMode" : d }, function() {
+	var gameMode = document.getElementById("gameMode").value;
+	if(document.getElementById("speed").value < 50) { // Any lower and it kicks you out
+		document.getElementById("speed").value = document.getElementById("currentSpeed").innerHTML;
+	}
+	var speed = document.getElementById("speed").value;
+	chrome.storage.sync.set({"gameMode": gameMode, "speed": speed }, function() {
 		if (chrome.runtime.error) {
 			console.log("Runtime error.");
 		}
 		else {
-			document.getElementById("current").innerHTML = d == 0 ? "Competition" : "Practice";
+			document.getElementById("currentMode").innerHTML = gameMode == 0 ? "Competition" : "Practice";
+			document.getElementById("currentSpeed").innerHTML = speed;
 			document.getElementById("status").style.color = "black";
 			setTimeout(() => {
 				document.getElementById("status").style.color = "white";

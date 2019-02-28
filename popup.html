@@ -9,21 +9,24 @@
 				align-items: center;
 				text-align: center;
 				font-family: 'Courier New', Courier, monospace;
-				font-size: 2rem;
+				font-size: 1.5rem;
 			}
-			#gameMode, #set, #run {
-				margin: 20px;
+			#gameMode, #set, #run, #speed {
+				margin: 5px 0 20px 0;
 				padding: 5px 10px;
 				font-size: 1em;
 				font-family: 'Courier New', Courier, monospace;
 				background-color: rgba(0, 0, 0, .1);
 				border: 2px solid black;
 			}
+			#speed {
+				width: 60%;
+			}
 			button {
 				cursor: pointer;
 				transition: .2s;
 			}
-			button:hover {
+			#set:hover, #run:hover {
 				background-color: rgba(0, 0, 0, .25);
 			}
 			#set {
@@ -37,17 +40,23 @@
 	<body>
 		<button id="run">Run the Hack</button>
 
-		<div>Current Mode: <div id="current"></div></div>
+		<div>Current Mode: <div id="currentMode"></div></div>
+		<br>
+		<div>Current Speed: <div id="currentSpeed"></div></div>
 
 		<hr width="100%"/>
 
+		Game Mode:
 		<select id="gameMode">
 			<option value="0">Competition</option>
 			<option value="1">Practice</option>
 		</select>
 		
+		Speed:
+		<div><input type="number" min="50" id="speed"/> ms</div>
+
 		<button id="set">Set</button>
-		<div id="status">Game Mode Updated</div>
+		<div id="status">Settings Updated</div>
 
 		<script src="popup.js"></script>
 	</body>

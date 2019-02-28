@@ -69,10 +69,10 @@ function fireKey(el) {
 	}
 }
 
-chrome.storage.sync.get("gameMode", function(items) {
+chrome.storage.sync.get(["gameMode", "speed"], function(items) {
 	if (!chrome.runtime.error) {
 		gameMode = items.gameMode;
 		getWords();
-		autoType = setInterval(type, 700); // An interval of 700ms puts you about right below 100wpm
+		autoType = setInterval(type, items.speed); // An interval of 700ms puts you about right below 100wpm
 	}
 });
