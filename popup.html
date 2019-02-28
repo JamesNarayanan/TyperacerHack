@@ -7,6 +7,7 @@
 				flex-direction: column;
 				justify-content: center;
 				align-items: center;
+				text-align: center;
 				font-family: 'Courier New', Courier, monospace;
 				font-size: 2rem;
 			}
@@ -29,13 +30,14 @@
 				margin-top: 0px;
 			}
 			#status {
-				text-align: center;
 				color: white;
 			}
 		</style>
 	</head>
 	<body>
 		<button id="run">Run the Hack</button>
+
+		<div>Current Mode: <div id="current"></div></div>
 
 		<hr width="100%"/>
 
@@ -47,6 +49,6 @@
 		<button id="set">Set</button>
 		<div id="status">Game Mode Updated</div>
 
-		<script src="options.js"></script>
+		<script src="popup.js"></script>
 	</body>
 </html>
